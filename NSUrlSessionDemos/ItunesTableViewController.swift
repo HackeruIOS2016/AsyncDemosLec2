@@ -40,12 +40,20 @@ class ItunesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("trackCell", forIndexPath: indexPath)
 
-        // Configure the cell...        
+        // Configure the cell...
         let track = dataSource.tracks[indexPath.row]
         
         cell.textLabel?.text = track.artistName
         cell.detailTextLabel?.text = track.trackName
         
+        let imageURL = FileIO.fileUrlInDocuments(track.previewUrl)
+        let image = UIImage(contentsOfFile: imageURL.path ?? "")
+        cell.imageView?.image = image
+        
+        dataSource.downloadTrack(indexPath, track: track) { (indexPath) -> () in
+            self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+        }
+ 
         return cell
     }
     
