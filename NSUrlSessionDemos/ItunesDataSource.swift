@@ -54,8 +54,8 @@ class ItunesDataSource{
             
             //copy the file
             FileIO.copyFile(dlFileURL, to: destURL)
+            dispatch_async(Queues.main){resultBlock(indexPath)}
             
-            resultBlock(indexPath)
         }
         //resume the suspended task
         task.resume()
