@@ -19,6 +19,14 @@ class ItunesTableViewController: UITableViewController {
     func refreshTableView(){
         dataSource.getData { (data) -> () in
             self.tableView.reloadData()
+            
+            for i in 0..<self.dataSource.tracks.count{
+                let indexPath = NSIndexPath(forRow: i, inSection: 0)
+                let track = self.dataSource.tracks[i]
+                self.dataSource.downloadTrack(indexPath, track: track, resultBlock: { (indexPath) -> () in
+                    self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+                })
+            }
         }
     }
     
@@ -50,11 +58,6 @@ class ItunesTableViewController: UITableViewController {
         
         cell.textLabel?.text = track.artistName
         cell.detailTextLabel?.text = track.trackName
- 
-        
-        dataSource.downloadTrack(indexPath, track: track) { (indexPath) -> () in
-            self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
-        }
  
         return cell
     }
