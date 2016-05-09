@@ -15,6 +15,9 @@
 		6D6952E01CE05FBA0007970C /* Queues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6952DF1CE05FBA0007970C /* Queues.swift */; };
 		6D6952E41CE062170007970C /* Reddit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6952E31CE062170007970C /* Reddit.swift */; };
 		6D6952E61CE062D00007970C /* RedditDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6952E51CE062D00007970C /* RedditDataSource.swift */; };
+		6D6952E81CE07E700007970C /* ItunesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6952E71CE07E700007970C /* ItunesDataSource.swift */; };
+		6D6952EA1CE07EC00007970C /* ItuensTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6952E91CE07EC00007970C /* ItuensTrack.swift */; };
+		6D6952ED1CE0819B0007970C /* ItunesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6952EC1CE0819B0007970C /* ItunesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		6D6952DF1CE05FBA0007970C /* Queues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queues.swift; sourceTree = "<group>"; };
 		6D6952E31CE062170007970C /* Reddit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reddit.swift; sourceTree = "<group>"; };
 		6D6952E51CE062D00007970C /* RedditDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditDataSource.swift; sourceTree = "<group>"; };
+		6D6952E71CE07E700007970C /* ItunesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItunesDataSource.swift; sourceTree = "<group>"; };
+		6D6952E91CE07EC00007970C /* ItuensTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItuensTrack.swift; sourceTree = "<group>"; };
+		6D6952EC1CE0819B0007970C /* ItunesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItunesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,7 @@
 		6D6952CC1CE05B860007970C /* NSUrlSessionDemos */ = {
 			isa = PBXGroup;
 			children = (
+				6D6952EB1CE0816C0007970C /* ViewControllers */,
 				6D6952E21CE061E00007970C /* DataSources */,
 				6D6952E11CE061D90007970C /* Models */,
 				6D6952CD1CE05B860007970C /* AppDelegate.swift */,
@@ -77,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				6D6952E31CE062170007970C /* Reddit.swift */,
+				6D6952E91CE07EC00007970C /* ItuensTrack.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -85,8 +93,17 @@
 			isa = PBXGroup;
 			children = (
 				6D6952E51CE062D00007970C /* RedditDataSource.swift */,
+				6D6952E71CE07E700007970C /* ItunesDataSource.swift */,
 			);
 			name = DataSources;
+			sourceTree = "<group>";
+		};
+		6D6952EB1CE0816C0007970C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6D6952EC1CE0819B0007970C /* ItunesTableViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,8 +177,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D6952EA1CE07EC00007970C /* ItuensTrack.swift in Sources */,
+				6D6952ED1CE0819B0007970C /* ItunesTableViewController.swift in Sources */,
 				6D6952D01CE05B860007970C /* ViewController.swift in Sources */,
 				6D6952E01CE05FBA0007970C /* Queues.swift in Sources */,
+				6D6952E81CE07E700007970C /* ItunesDataSource.swift in Sources */,
 				6D6952CE1CE05B860007970C /* AppDelegate.swift in Sources */,
 				6D6952E41CE062170007970C /* Reddit.swift in Sources */,
 				6D6952E61CE062D00007970C /* RedditDataSource.swift in Sources */,

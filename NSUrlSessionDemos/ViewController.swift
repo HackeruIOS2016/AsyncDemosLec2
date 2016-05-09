@@ -12,10 +12,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let dataSource = RedditDataSource()
-            dataSource.getData { (reddits) -> () in
-                //
+        let dataSource = ItunesDataSource()
+        
+        dataSource.getData { (tunes) -> () in
+            //print(tunes)
+            
+            for tune in tunes{
+                print(tune)
+            }
         }
     }
 
