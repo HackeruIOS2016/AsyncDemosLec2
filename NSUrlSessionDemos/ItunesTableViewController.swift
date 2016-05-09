@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
+
+
 
 class ItunesTableViewController: UITableViewController {
 
@@ -29,6 +33,7 @@ class ItunesTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+ 
         return 1
     }
 
@@ -45,10 +50,7 @@ class ItunesTableViewController: UITableViewController {
         
         cell.textLabel?.text = track.artistName
         cell.detailTextLabel?.text = track.trackName
-        
-        let imageURL = FileIO.fileUrlInDocuments(track.previewUrl)
-        let image = UIImage(contentsOfFile: imageURL.path ?? "")
-        cell.imageView?.image = image
+ 
         
         dataSource.downloadTrack(indexPath, track: track) { (indexPath) -> () in
             self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
@@ -57,7 +59,25 @@ class ItunesTableViewController: UITableViewController {
         return cell
     }
     
-
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let track = dataSource.tracks[indexPath.row]
+        
+        let fileName = NSURL(string: track.previewUrl)!.lastPathComponent!
+        let fileInDiskURL = FileIO.fileUrlInDocuments(fileName)
+        
+        if NSFileManager.defaultManager().fileExistsAtPath(fileInDiskURL.path!) {
+            let player = AVPlayer(URL: fileInDiskURL)
+            let playerViewController = AVPlayerViewController()
+            playerViewController.player = player
+            
+            presentViewController(playerViewController, animated: true, completion: { () -> Void in
+                player.play()
+            })
+        }
+        
+        
+        
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

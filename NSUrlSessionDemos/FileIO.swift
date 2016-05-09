@@ -21,7 +21,8 @@ class FileIO {
             do{
                 try NSFileManager.defaultManager().removeItemAtURL(to)
             }
-            catch{}
+            catch{//file does not exist
+            }
             try NSFileManager.defaultManager().copyItemAtURL(from, toURL: to)
         }
         catch let err as NSError{

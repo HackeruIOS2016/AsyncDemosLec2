@@ -54,6 +54,10 @@ class ItunesDataSource{
             
             //copy the file
             FileIO.copyFile(dlFileURL, to: destURL)
+            
+            let image = UIImage(contentsOfFile: destURL.path ?? "")
+            
+            
             dispatch_async(Queues.main){resultBlock(indexPath)}
             
         }
